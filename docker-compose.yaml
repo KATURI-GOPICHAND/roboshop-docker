@@ -6,8 +6,6 @@ services:
     container_name: catalogue
     depends_on:
     - mongodb
-
-services:
   mongodb:
     build:
       dockerfile: mongodb.Dockerfile     # It moves to mongodb directory
