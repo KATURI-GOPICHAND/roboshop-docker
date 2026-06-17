@@ -10,7 +10,7 @@ services:
     build:
       dockerfile: mongodb.Dockerfile     # It moves to mongodb directory
     image: kgc11/mongodb:1.0.0    # docker build -t kgc11/momgodb:1.0.0
-    container_nmae: mongodb
+    container_name: mongodb
 
 
 networks:
