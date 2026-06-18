@@ -17,6 +17,12 @@ services:
     container_name: cart
     depends_on:
     - redis
+  shipping:
+    build: ./shipping
+    image: kgc11/shipping:1.0.0
+    container_name: shipping
+    depends_on:
+    - mysql
   frontend:
     build: ./frontend
     image: kgc11/frontend:1.0.0
