@@ -7,12 +7,32 @@ services:
     container_name: catalogue
     depends_on:
     - mongodb
+  user:
+    build:
+      context: ./user
+      dockerfile: Dockerfile
+    image: kgc11/user:1.0.0
+    container_name: user
+    depends_on:
+    - redis
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: kgc11/frontend:1.0.0
+    container_name: frontend
+    depends_on:
+    - catalogue
+    - user
   mongodb:
     build:
       context: ./mongodb
       dockerfile: Dockerfile     # It moves to mongodb directory
     image: kgc11/mongodb:1.0.0    # docker build -t kgc11/momgodb:1.0.0
     container_name: mongodb
+  redis:
+    image: redis:7.0
+    container_name: redis
 
 networks:
   default:
