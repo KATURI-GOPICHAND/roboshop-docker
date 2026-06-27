@@ -7,7 +7,7 @@ RUN pip3.9 install --prefix=/install -r requirements.txt
 FROM python:3.9.25-alpine3.22
 EXPOSE 8080
 WORKDIR /app
-RUN add --no-cache pcre
+RUN apk add --no-cache pcre
 RUN addgroup -S roboshop && roboshop -G roboshop
 RUN chown -R roboshop:roboshop /app
 COPY --from=builder /install /usr/local
